@@ -1,0 +1,14 @@
+---
+- hosts: test
+  become: true
+  tasks:
+    - name: stop nginx
+      service: name=nginx state=stopped
+    - name : restart nginx
+      service: name=nginx state=restart
+      
+      
+      
+#extra stop task , to have a clean up of any running process
+       
+      
