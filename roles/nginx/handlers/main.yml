@@ -1,3 +1,6 @@
 ---
 - name: restart-nginx
   service: name=nginx state=restarted
+
+
+# this can be utilized when we are making changes in the server eg : file copy or new deployment , we can define a notify after the change and innvoke this handler
