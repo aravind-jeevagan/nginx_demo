@@ -1,0 +1,22 @@
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    ls /home/vsts/work/1/s
+    ansible -m ping -i hosts.yml 'test'
+  displayName: 'Test Ansible conectivity'
+# Starter pipeline
+
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+- task: Ansible@0
+  inputs:
+    ansibleInterface: 'agentMachine'
+    playbookPathOnAgentMachine: '/home/vsts/work/1/s/nginx.yml'
+    inventoriesAgentMachine: 'file'
+    inventoryFileOnAgentMachine: '/home/vsts/work/1/s/hosts.yml'
